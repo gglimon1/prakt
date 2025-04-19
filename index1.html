@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Инвестиционное приложение</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Подключаем Telegram WebApp скрипт -->
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+</head>
+<body>
+    <div id="app">
+        <div id="content">
+            <!-- Здесь будет основной контент страницы -->
+            <div id="marketPage" class="page active">
+                <h2>Рынок</h2>
+                <div class="chart-container">
+                    <canvas id="candleChart"></canvas>
+                </div>
+                <div class="stock-list">
+                    <h3>Популярные акции</h3>
+                    <div class="stock-item" onclick="showStockDetails('AAPL')">
+                        <div class="stock-icon">AAPL</div>
+                        <div class="stock-info">
+                            <div class="stock-name">Apple Inc.</div>
+                            <div class="stock-price">$173.45</div>
+                        </div>
+                        <div class="stock-change positive">+2.3%</div>
+                    </div>
+                    <div class="stock-item" onclick="showStockDetails('GOOGL')">
+                        <div class="stock-icon">GOOGL</div>
+                        <div class="stock-info">
+                            <div class="stock-name">Alphabet Inc.</div>
+                            <div class="stock-price">$133.82</div>
+                        </div>
+                        <div class="stock-change negative">-0.7%</div>
+                    </div>
+                    <div class="stock-item" onclick="showStockDetails('MSFT')">
+                        <div class="stock-icon">MSFT</div>
+                        <div class="stock-info">
+                            <div class="stock-name">Microsoft Corp.</div>
+                            <div class="stock-price">$344.29</div>
+                        </div>
+                        <div class="stock-change positive">+1.5%</div>
+                    </div>
+                    <div class="stock-item" onclick="showStockDetails('AMZN')">
+                        <div class="stock-icon">AMZN</div>
+                        <div class="stock-info">
+                            <div class="stock-name">Amazon.com Inc.</div>
+                            <div class="stock-price">$127.12</div>
+                        </div>
+                        <div class="stock-change positive">+0.6%</div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="portfolioPage" class="page">
+                <h2>Портфель</h2>
+                <div class="portfolio-summary">
+                    <div class="portfolio-value">
+                        <h3>Общая стоимость</h3>
+                        <div class="value">$10,245.67</div>
+                        <div class="change positive">+$124.56 (+1.23%)</div>
+                    </div>
+                </div>
+
+                <div class="portfolio-assets">
+                    <h3>Ваши активы</h3>
+                    <div class="asset-item">
+                        <div class="asset-icon">AAPL</div>
+                        <div class="asset-info">
+                            <div class="asset-name">Apple Inc.</div>
+                            <div class="asset-shares">3 акции</div>
+                        </div>
+                        <div class="asset-value">
+                            <div class="value">$520.35</div>
+                            <div class="change positive">+2.3%</div>
+                        </div>
+                    </div>
+                    <div class="asset-item">
+                        <div class="asset-icon">MSFT</div>
+                        <div class="asset-info">
+                            <div class="asset-name">Microsoft Corp.</div>
+                            <div class="asset-shares">2 акции</div>
+                        </div>
+                        <div class="asset-value">
+                            <div class="value">$688.58</div>
+                            <div class="change positive">+1.5%</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="portfolio-actions">
+                    <button class="action-button">Купить</button>
+                    <button class="action-button">Продать</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Нижняя навигационная панель -->
+        <div class="nav-bar">
+            <button id="marketBtn" class="nav-button active">
+                <svg viewBox="0 0 24 24" class="nav-icon">
+                    <path d="M1,9h3v10h-3v-10zm6-5h3v15h-3v-15zm6,7h3v8h-3v-8zm6-7h3v15h-3v-15z"/>
+                </svg>
+                <span>Рынок</span>
+            </button>
+            <button id="portfolioBtn" class="nav-button">
+                <svg viewBox="0 0 24 24" class="nav-icon">
+                    <path d="M21,6h-4V3c0-0.55-0.45-1-1-1H8C7.45,2,7,2.45,7,3v3H3C1.9,6,1,6.9,1,8v12c0,1.1,0.9,2,2,2h18c1.1,0,2-0.9,2-2V8C23,6.9,22.1,6,21,6z M9,4h6v2H9V4z M21,20H3V8h4h10h4V20z"/>
+                </svg>
+                <span>Портфель</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Подключаем Chart.js для графиков -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
