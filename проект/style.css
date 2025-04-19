@@ -1,0 +1,202 @@
+:root {
+    --tg-theme-bg-color: #ffffff;
+    --tg-theme-text-color: #000000;
+    --tg-theme-hint-color: #999999;
+    --tg-theme-link-color: #2481cc;
+    --tg-theme-button-color: #2481cc;
+    --tg-theme-button-text-color: #ffffff;
+    --tg-theme-secondary-bg-color: #f0f0f0;
+
+    /* Дополнительные переменные для нашей темы */
+    --nav-bg-color: rgba(240, 240, 240, 0.8);
+    --nav-active-color: #2481cc;
+    --nav-inactive-color: #999999;
+    --border-color: #e0e0e0;
+    --positive-color: #4caf50;
+    --negative-color: #f44336;
+}
+
+/* Автоматически подстраиваемся под тему Telegram */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background-color: var(--tg-theme-bg-color);
+    color: var(--tg-theme-text-color);
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    font-size: 16px;
+}
+
+#app {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    overflow: hidden;
+}
+
+#content {
+    flex-grow: 1;
+    overflow-y: auto;
+    padding: 16px;
+    padding-bottom: 80px; /* добавляем отступ снизу для навигационной панели */
+}
+
+.page {
+    display: none;
+}
+
+.page.active {
+    display: block;
+}
+
+h2 {
+    margin-top: 0;
+    margin-bottom: 16px;
+    font-size: 24px;
+    font-weight: 600;
+}
+
+h3 {
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 12px;
+}
+
+/* Навигационная панель */
+.nav-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-around;
+    background-color: var(--nav-bg-color);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-top: 1px solid var(--border-color);
+    padding: 8px 16px;
+    box-sizing: border-box;
+    z-index: 100;
+}
+
+.nav-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    border: none;
+    padding: 8px 16px;
+    outline: none;
+    color: var(--nav-inactive-color);
+    cursor: pointer;
+}
+
+.nav-button.active {
+    color: var(--nav-active-color);
+}
+
+.nav-icon {
+    width: 24px;
+    height: 24px;
+    fill: currentColor;
+    margin-bottom: 4px;
+}
+
+/* График */
+.chart-container {
+    height: 240px;
+    margin-bottom: 16px;
+    background-color: var(--tg-theme-secondary-bg-color);
+    border-radius: 12px;
+    overflow: hidden;
+    padding: 16px;
+}
+
+/* Списки акций */
+.stock-list, .portfolio-assets {
+    margin-bottom: 24px;
+}
+
+.stock-item, .asset-item {
+    display: flex;
+    align-items: center;
+    padding: 12px;
+    margin-bottom: 8px;
+    background-color: var(--tg-theme-secondary-bg-color);
+    border-radius: 12px;
+    cursor: pointer;
+}
+
+.stock-icon, .asset-icon {
+    font-weight: bold;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background-color: var(--tg-theme-button-color);
+    color: var(--tg-theme-button-text-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 12px;
+}
+
+.stock-info, .asset-info {
+    flex-grow: 1;
+}
+
+.stock-name, .asset-name {
+    font-weight: 500;
+    margin-bottom: 4px;
+}
+
+.stock-price, .asset-shares {
+    font-size: 14px;
+    color: var(--tg-theme-hint-color);
+}
+
+.stock-change, .change {
+    font-weight: 500;
+}
+
+.positive {
+    color: var(--positive-color);
+}
+
+.negative {
+    color: var(--negative-color);
+}
+
+/* Портфель */
+.portfolio-summary {
+    background-color: var(--tg-theme-secondary-bg-color);
+    border-radius: 12px;
+    padding: 16px;
+    margin-bottom: 24px;
+}
+
+.portfolio-value .value {
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+.portfolio-actions {
+    display: flex;
+    justify-content: space-around;
+}
+
+.action-button {
+    background-color: var(--tg-theme-button-color);
+    color: var(--tg-theme-button-text-color);
+    border: none;
+    border-radius: 8px;
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --t
